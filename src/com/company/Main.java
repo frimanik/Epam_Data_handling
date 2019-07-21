@@ -13,18 +13,20 @@ public class Main {
 
     public static void main(String[] args) {
         Main test = new Main();
-        test.Age();
+        test.age();
         test.dateDifference();
         test.formatDate();
-        test.surfaceCircle();
+        test.areaOfCircle();
+        test.sumOfNumbers();
+        test.comparer();
     }
 
     /*
-    Определить возраст с момента рождения  на момент запуска программы.
+    1.1.Определить возраст с момента рождения  на момент запуска программы.
     Возраст в секундах, минутах, часах, днях, месяцах и годах
     */
 
-    public void Age() {
+    public void age() {
         LocalDateTime start = LocalDateTime.now();
         LocalDateTime birthday = LocalDateTime.of(2000, 1, 21, 14, 00);
         long gap = ChronoUnit.YEARS.between(birthday, start);
@@ -42,7 +44,7 @@ public class Main {
     }
 
     /*
-    Даны две даты в виде 25.07.1921, т.е. день месяца 2 разряда,
+    1.2.Даны две даты в виде 25.07.1921, т.е. день месяца 2 разряда,
     месяц 2 разряда, год 4 разряда. Найти разницу в днях между
     ними. Число должно быть всегда положительным
     */
@@ -55,7 +57,7 @@ public class Main {
     }
 
     /*
-    Дана строка вида Friday, Aug 10, 2016 12:10:56 PM.
+    1.3.Дана строка вида Friday, Aug 10, 2016 12:10:56 PM.
     Необходимо сконвертировать ее в вид “2018-0 8-10".
     */
 
@@ -67,15 +69,42 @@ public class Main {
     }
 
     /*
-    Необходимо посчитать площадь круга с указанным радиусом с точностью 50 знаков после запятой
+    2.1.Необходимо посчитать площадь круга с указанным радиусом с точностью 50 знаков после запятой
     */
-    
-    public void surfaceCircle() {
+
+    public void areaOfCircle() {
         BigDecimal PI = new BigDecimal(3.14159265358979323846264338327950288419716939937510);
         BigDecimal radius = new BigDecimal(3);
         BigDecimal result = radius.pow(2).multiply(PI);
         result = result.setScale(50);
         System.out.println(result);
+    }
+
+    /*
+    2.2. Даны три числа, например, 0.1, 0.15 и 0.25. Числа даны в виде строки.
+     Необходимо ответить, является ли третье число суммой
+     двух первых.
+     */
+    public void sumOfNumbers() {
+        String a = "1.25";
+        String b = "2.75";
+        String c = "3.0";
+        Double first = Double.parseDouble(a);
+        Double second = Double.parseDouble(b);
+        Double third = Double.parseDouble(c);
+        System.out.println(first + second == third);
+    }
+
+    /*
+    2.3. Даны три числа. Нужно найти минимум и максимум не используя условный и тернарный операторы
+     */
+
+    public void comparer() {
+        int a = 1;
+        int b = 2;
+        int c = 3;
+        System.out.println("Минимум:" + min(min(a, b), c));
+        System.out.println("Максимум:" + max(max(a, b), c));
     }
 }
 
